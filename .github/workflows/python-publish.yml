@@ -33,7 +33,7 @@ jobs:
     - name: Run UnitTests
       run: |
         poetry run coverage run --source=./rendlargent  -m  unittest ./tests/main_test.py
-        coverage report -m
+        poetry run coverage report -m
     - name: Build package
       if: github.ref == 'refs/heads/main'
       run: |
