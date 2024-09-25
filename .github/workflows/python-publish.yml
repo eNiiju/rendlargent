@@ -35,4 +35,6 @@ jobs:
         poetry run python -m unittest ./tests/main_test.py
     - name: Build package
       if: github.ref == 'refs/heads/main'
-      run: poetry publish --build --username "Niiju" --password ${{ secrets.PYPI_TOKEN }}
+      run: |
+        poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN }}
+        poetry publish --build
